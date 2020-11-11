@@ -1,8 +1,11 @@
-const msgConst = require("./constant/msgConst");
-const express = require('express');
-const app = express();
-const io = require('socket.io-client');
-const socket = io('http://127.0.0.1:3000');
-socket.on('connect', function (data) {
-    socket.emit('joined', 'Hello World from client');
+const WebSocket = require('ws');
+
+const ws = new WebSocket('ws://nodeawstest-env.eba-vjg2qn3w.us-east-2.elasticbeanstalk.com/');
+
+ws.on('open', function open() {
+    ws.send('something from client');
+});
+
+ws.on('message', function incoming(data) {
+    console.log(data);
 });
