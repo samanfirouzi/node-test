@@ -14,9 +14,9 @@ wss.on('connection', function connection(ws) {
     // clr[uuid] = ws;
     ws.on('message', function incoming(message) {
         console.log('received: %s', message);
-
+        // client !== ws &&
         wss.clients.forEach(function each(client) {
-            if (client !== ws && client.readyState === WebSocket.OPEN) {
+            if (client.readyState === WebSocket.OPEN) {
                 client.send(message);
             }
         });
