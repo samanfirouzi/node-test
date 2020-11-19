@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "gitignore": "^0.6.0",
     "mongodb": "^3.6.3",
     "nodemon": "^2.0.6",
     "socket.io": "^3.0.1",
